@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: hive-render-service
+    runtime: docker
+    plan: starter
+    branch: main
+    dockerfilePath: ./Dockerfile
+    buildFilter:
+      paths:
+        - Dockerfile
+        - package.json
+        - server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
